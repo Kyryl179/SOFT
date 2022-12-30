@@ -8,8 +8,11 @@
 
     <canvas id="canvas" width="2000px" ></canvas>
     <script>
-        var x  = 300;
-        var y = 70;
+        var bx  = 300;
+        var by = 70;
+        function Random(min, max) {
+            return Math.random() * (max - min) + min;
+        }
         function draw() {
             const canvas = document.getElementById("canvas");
             if (canvas.getContext) {
@@ -21,37 +24,87 @@
                 ctx.fillStyle = "rgba(255, 255, 1)";
                 ctx.fillRect(0, 0, window.innerWidth-15,window.innerHeight-19);
 
+            
+                //Blocks
                 ctx.fillStyle = "rgb(30, 30, 30)";
-                ctx.fillRect(10, 10, 50, 50);
+                ctx.fillRect(130, 30, 50, 50);
         
                 ctx.fillStyle = "rgba(30, 30, 30, 1)";
-                ctx.fillRect(30, 60, 50, 50);
+                ctx.fillRect(880, 20, 50, 50);
 
+                ctx.fillStyle = "rgba(30, 30, 30, 1)";
+                ctx.fillRect(1270, 80, 50, 50);
+                
+                ctx.fillStyle = "rgba(30, 30, 30, 1)";
+                ctx.fillRect(590, 140, 50, 50);
 
+                ctx.fillStyle = "rgba(30, 30, 30, 1)";
+                ctx.fillRect(900, 210, 50, 50);
+
+                ctx.fillStyle = "rgba(30, 30, 30, 1)";
+                ctx.fillRect(500, 250, 50, 50);
+
+                ctx.fillStyle = "rgba(30, 30, 30, 1)";
+                ctx.fillRect(1270, 70, 50, 50);
+
+                ctx.fillStyle = "rgba(30, 30, 30, 1)";
+                ctx.fillRect(800, 300, 50, 50);
+
+                ctx.fillStyle = "rgba(30, 30, 30, 1)";
+                ctx.fillRect(1710, 360, 50, 50);
+
+                ctx.fillStyle = "rgba(30, 30, 30, 1)";
+                ctx.fillRect(180, 380, 50, 50);
+
+                ctx.fillStyle = "rgba(30, 30, 30, 1)";
+                ctx.fillRect(630, 40, 50, 50);
+
+                ctx.fillStyle = "rgba(30, 30, 30, 1)";
+                ctx.fillRect(650, 540, 50, 50);
+
+                ctx.fillStyle = "rgba(30, 30, 30, 1)";
+                ctx.fillRect(150, 510, 50, 50);
+
+                ctx.fillStyle = "rgba(30, 30, 30, 1)";
+                ctx.fillRect(580, 650, 50, 50);
+
+                ctx.fillStyle = "rgba(30, 30, 30, 1)";
+                ctx.fillRect(430, 200, 50, 50);
+
+                ctx.fillStyle = "rgba(30, 30, 30, 1)";
+                ctx.fillRect(1400, 600, 50, 50);
+
+                ctx.fillStyle = "rgba(30, 30, 30, 1)";
+                ctx.fillRect(1300, 500, 50, 50);
+
+                ctx.fillStyle = "rgba(30, 30, 30, 1)";
+                ctx.fillRect(1000, 570, 50, 50);           
+                //End
                 ctx.beginPath();
-                ctx.arc(x,y, 10, 0, Math.PI * 2);
+                ctx.arc(bx,by, 10, 0, Math.PI * 2);
                 ctx.fillStyle = "rgba(0,0,255,1)";
                 ctx.fill();
                 ctx.closePath();
             }
           }
-        
+
         document.addEventListener('keydown', (event) => {
             const keyName = event.key;
-            if((keyName == 'ArrowLeft') && (x>10)){ 
-                x -= 10;
+
+            if((keyName == 'ArrowLeft') && (bx>10)){     
+                bx -= 10;
                 draw();
             }
-            if((keyName == 'ArrowRight') && (x<window.innerWidth-30)){
-                x += 10;
+            if((keyName == 'ArrowRight') && (bx<window.innerWidth-30)){
+                bx += 10;
                 draw();
             }
-            if((keyName == 'ArrowUp') && (y>10)){
-                y -= 10;
+            if((keyName == 'ArrowUp') && (by>10)){
+                by -= 10;
                 draw();
             }
-            if((keyName == 'ArrowDown') && (y<window.innerHeight-30)){
-                y += 10;
+            if((keyName == 'ArrowDown') && (by<window.innerHeight-30)){
+                by += 10;
                 draw();
             }
 
