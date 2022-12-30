@@ -1,0 +1,37 @@
+body{
+    background: linear-gradient(90deg, rgba(253,29,29,1) 0%, rgba(112,69,252,1) 100%);
+}
+div{
+    display:flex; 
+    flex-direction: row; 
+    justify-content: left;
+}
+.menu-button{
+    font-family: 'Kavoon', cursive;
+    background-color: rgba(250, 235, 215, 0);
+    border-color: rgba(240, 248, 255, 0);
+    margin-left: 1.5%;
+    font-size: 50px;
+}
+.image-logo{
+    width: 10%;
+    height: 100px;
+}
+.logo-line{
+    width: 10%;
+    height: 5px;
+}
+.menu-button:hover{
+    text-decoration: underline;
+}
+.game-window{
+    background-image: url('./IMG/Surclus-logo.png');
+    margin-left: 10%;
+    width: 75%;
+    height: 100px;
+    border-color: aliceblue;
+    border-radius: 0px;
+}
+.game-window:hover{
+    border-radius: 25px;
+}
