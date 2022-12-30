@@ -27,8 +27,8 @@ div{
 .game-window{
     background-image: url('./IMG/Surclus-logo.png');
     margin-left: 10%;
-    width: 75%;
-    height: 80px;
+    width: 65%;
+    height: 100px;
     border-color: aliceblue;
     border-radius: 0px;
 }
