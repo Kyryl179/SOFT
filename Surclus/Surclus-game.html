@@ -8,8 +8,8 @@
 
     <canvas id="canvas" width="2000px" ></canvas>
     <script>
-        var bx  = 300;
-        var by = 70;
+        var bx  = 170;
+        var by = 530;
         const move = ['left','right','up','down'];
         function Random(min, max) {
             return Math.random() * (max - min) + min;
@@ -27,22 +27,22 @@
 
             
                 //Blocks
-                ctx.fillStyle = "rgb(30, 30, 130)";
+                ctx.fillStyle = "rgb(30, 30, 30)";
                 ctx.fillRect(130, 30, 50, 50);
         
-                ctx.fillStyle = "rgba(30, 30, 130, 1)";
+                ctx.fillStyle = "rgba(30, 30, 30, 1)";
                 ctx.fillRect(880, 20, 50, 50);
 
-                ctx.fillStyle = "rgba(30, 30, 130, 1)";
+                ctx.fillStyle = "rgba(30, 30, 30, 1)";
                 ctx.fillRect(1270, 80, 50, 50);
                 
-                ctx.fillStyle = "rgba(30, 30, 130, 1)";
+                ctx.fillStyle = "rgba(30, 30, 30, 1)";
                 ctx.fillRect(590, 140, 50, 50);
 
-                ctx.fillStyle = "rgba(30, 30, 130, 1)";
+                ctx.fillStyle = "rgba(30, 30, 30, 1)";
                 ctx.fillRect(900, 210, 50, 50);
 
-                ctx.fillStyle = "rgba(30, 130, 30, 1)";
+                ctx.fillStyle = "rgba(30, 30, 30, 1)";
                 ctx.fillRect(500, 250, 50, 50);
 
                 ctx.fillStyle = "rgba(30, 30, 30, 1)";
@@ -60,8 +60,8 @@
                 ctx.fillStyle = "rgba(30, 30, 30, 1)";
                 ctx.fillRect(650, 540, 50, 50);
 
-                ctx.fillStyle = "rgba(30, 30, 30, 1)";
-                ctx.fillRect(150, 510, 50, 50);
+                ctx.fillStyle = "rgba(255, 0, 30, 1)";
+                ctx.fillRect(150, 510, 40, 40);
 
                 ctx.fillStyle = "rgba(30, 30, 30, 1)";
                 ctx.fillRect(580, 650, 50, 50);
@@ -85,16 +85,42 @@
                 ctx.fill();
                 ctx.closePath();
 
-                const ctx_cord_x = [590,900,500,800,1710,180,630,650,150,580,430,1400,1300,1000]; 
-                const ctx_cord_y = [140,210,250,300,360,380,40,540,410,650,200,600,500,570];
-                
+                const ctx_cord_x = [130,880,1270,590,900,500,800,1710,180,630,650,150,580,430,1400,1300,1000]; 
+                const ctx_cord_y = [30,20,80,140,210,250,300,360,380,40,540,410,650,200,600,500,570];
 
-                if((by>25 && by < 85 && bx<=190 && bx>=130) || (by>15 && by < 75 && bx<=940 && bx>=880) || (by>75 && by < 135 && bx<=1330 && bx>=1265) || (by>135 && by < 200 && bx>=585 && bx<=650) || (by>205 && by < 265 && bx<=960 && bx>=895) || (by>495 && by<555 && bx<=310 && bx<=245)){
+                if(by>(ctx_cord_y[1]-5) && by<(ctx_cord_y[1]+55) && (bx>=ctx_cord_x[1]) && (bx<=ctx_cord_x[1]+55)){
+                    window.alert('R1');
+                }
+
+
+                for(let i = 0;i<17;i++){
+                    if(by>(ctx_cord_y[i]-5) && by<(ctx_cord_y[i]+55) && (bx<ctx_cord_x[i]+55) && (bx>=ctx_cord_x[i]-5)){
+                        move[0]='stop';
+                        i=17;
+                    }
+                    else{
+                        move[0]='left';
+                    }
+                    if(by>(ctx_cord_y[i]-5) && by<(ctx_cord_y[i]+55) && (bx>=ctx_cord_x[i]) && (bx<=ctx_cord_x[i]+55)){
+                        move[1]='stop';
+                        i=17;
+                    }
+                    else{
+                        move[1]='right';
+                    }
+
+                }
+                /*
+                for(let obj; obj < 17; obj++){
+                    
+                }*/
+
+                /*if((by>25 && by < 85 && bx<=190 && bx>=130) || (by>15 && by < 75 && bx<=940 && bx>=880) || (by>75 && by < 135 && bx<=1330 && bx>=1265) || (by>135 && by < 200 && bx>=585 && bx<=650) || (by>205 && by < 265 && bx<=960 && bx>=895) || (by>495 && by<555 && bx<=310 && bx<=245)){
                     move[0] = 'block';
                 }
                 else{
                     move[0] = 'left';
-                }
+                }*/
 
 
                 //for(let obj; obj < 17; obj++){
@@ -107,11 +133,10 @@
             const keyName = event.key;
             
             if((keyName == 'ArrowLeft') && (bx>10) && (move[0] == 'left')){
-
                 bx -= 10;
                 draw();
             }
-            if((keyName == 'ArrowRight') && (bx<window.innerWidth-30)){
+            if((keyName == 'ArrowRight') && (bx<window.innerWidth-30) && (move[1] == 'right')){
                 bx += 10;
                 draw();
             }
@@ -122,6 +147,9 @@
             if((keyName == 'ArrowDown') && (by<window.innerHeight-30)){
                 by += 10;
                 draw();
+            }
+            if((keyName == 'Enter')){
+                window.alert('X:'+bx+'Y:'+by);
             }
 
           });
